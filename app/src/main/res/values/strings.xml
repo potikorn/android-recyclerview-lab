@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">RecyclerView Lab</string>
     <string name="staggered_grid_layout">Staggered Grid Layout</string>
+    <string name="grid_layout">Grid Layout</string>
 </resources>

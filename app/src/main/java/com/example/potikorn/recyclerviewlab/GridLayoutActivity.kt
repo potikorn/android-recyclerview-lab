@@ -2,10 +2,10 @@ package com.example.potikorn.recyclerviewlab
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.StaggeredGridLayoutManager
+import android.support.v7.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_staggered_grid_layout.*
 
-class StaggeredGridLayoutActivity : AppCompatActivity() {
+class GridLayoutActivity : AppCompatActivity() {
 
     private val simpleAdapter: BaseAdapter by lazy { BaseAdapter() }
 
@@ -13,11 +13,14 @@ class StaggeredGridLayoutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_staggered_grid_layout)
         rvSimpleList.apply {
-            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            layoutManager = GridLayoutManager(this@GridLayoutActivity,
+                    2, GridLayoutManager.VERTICAL, false)
+            addItemDecoration(SpacesItemDecoration(16))
             adapter = simpleAdapter
         }
 
         val listSimpleModel = (0 until 30).map { SimpleModel(it + 1, randomColor()) }.toMutableList()
         simpleAdapter.items = listSimpleModel
     }
+
 }
