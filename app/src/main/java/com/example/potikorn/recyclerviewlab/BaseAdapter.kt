@@ -9,17 +9,17 @@ import kotlin.properties.Delegates
 
 class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    var items: MutableList<SimpleModel> by Delegates.observable(mutableListOf(), { _, _, _ -> notifyDataSetChanged() })
+    var items: MutableList<SimpleModel> by Delegates.observable(mutableListOf()) { _, _, _ -> notifyDataSetChanged() }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder =
-            SimpleViewHolder(parent?.inflate(R.layout.item_simple_card))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
+            SimpleViewHolder(parent.inflate(R.layout.item_simple_card))
 
     override fun getItemCount(): Int = items.size
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder?, position: Int) =
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) =
             (holder as SimpleViewHolder).onBindData(items[position])
 
-    inner class SimpleViewHolder(view: View?) : RecyclerView.ViewHolder(view) {
+    inner class SimpleViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun onBindData(simpleModel: SimpleModel) {
             itemView.tv.text = simpleModel.id.toString()
             itemView.tv.setBackgroundColor(simpleModel.colorId ?: 0)

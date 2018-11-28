@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import java.util.*
 
-
 fun ViewGroup.inflate(layoutId: Int, attachToRoot: Boolean = false): View =
         LayoutInflater.from(context).inflate(layoutId, this, attachToRoot)
 

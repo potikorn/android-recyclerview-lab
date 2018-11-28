@@ -1,8 +1,13 @@
-package com.example.potikorn.recyclerviewlab
+package com.example.potikorn.recyclerviewlab.gridview
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
+import com.example.potikorn.recyclerviewlab.BaseAdapter
+import com.example.potikorn.recyclerviewlab.R
+import com.example.potikorn.recyclerviewlab.SimpleModel
+import com.example.potikorn.recyclerviewlab.SpacesItemDecoration
+import com.example.potikorn.recyclerviewlab.randomColor
 import kotlinx.android.synthetic.main.activity_staggered_grid_layout.*
 
 class GridLayoutActivity : AppCompatActivity() {
@@ -19,7 +24,12 @@ class GridLayoutActivity : AppCompatActivity() {
             adapter = simpleAdapter
         }
 
-        val listSimpleModel = (0 until 30).map { SimpleModel(it + 1, randomColor()) }.toMutableList()
+        val listSimpleModel = (0 until 30).map {
+            SimpleModel(
+                it + 1,
+                randomColor()
+            )
+        }.toMutableList()
         simpleAdapter.items = listSimpleModel
     }
 

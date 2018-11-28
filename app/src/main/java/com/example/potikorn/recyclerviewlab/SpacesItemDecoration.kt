@@ -6,13 +6,13 @@ import android.view.View
 
 class SpacesItemDecoration(private val space: Int) : RecyclerView.ItemDecoration() {
 
-    override fun getItemOffsets(outRect: Rect?, view: View?, parent: RecyclerView?, state: RecyclerView.State?) {
-        outRect?.left = space
-        outRect?.right = space
-        outRect?.bottom = space
+    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+        outRect.left = space
+        outRect.right = space
+        outRect.bottom = space
 
-        if (parent?.getChildAdapterPosition(view) == 0){
-            outRect?.top = space
+        if (parent.getChildAdapterPosition(view) == 0){
+            outRect.top = space
         }
     }
 

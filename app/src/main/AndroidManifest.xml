@@ -16,8 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StaggeredGridLayoutActivity"/>
-        <activity android:name=".GridLayoutActivity"/>
+        <activity android:name=".staggered.StaggeredGridLayoutActivity"/>
+        <activity android:name=".gridview.GridLayoutActivity"/>
     </application>
 
 </manifest>
